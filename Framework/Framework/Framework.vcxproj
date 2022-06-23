@@ -142,10 +142,14 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainUpdate.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Content.h" />
+    <ClInclude Include="enum.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="MainUpdate.h" />
+    <ClInclude Include="SceneManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

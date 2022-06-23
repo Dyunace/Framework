@@ -16,6 +16,15 @@
     <Filter Include="소스 파일\MainUpdate">
       <UniqueIdentifier>{efe4d2f2-dc24-48ca-a6d3-7ef3551794d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99.Manager">
+      <UniqueIdentifier>{81b550a5-75e3-4fbb-87de-7c7d481b3828}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99.Manager\SceneManager">
+      <UniqueIdentifier>{028097ac-09d5-4fce-9899-f970b91ae679}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\include">
+      <UniqueIdentifier>{a91d7edf-ded0-4bb8-809b-0be38bff8f5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -24,6 +33,9 @@
     <ClCompile Include="MainUpdate.cpp">
       <Filter>소스 파일\MainUpdate</Filter>
     </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\99.Manager\SceneManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">
@@ -31,6 +43,15 @@
     </ClInclude>
     <ClInclude Include="MainUpdate.h">
       <Filter>소스 파일\MainUpdate</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 파일\99.Manager\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="enum.h">
+      <Filter>헤더 파일\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Content.h">
+      <Filter>헤더 파일\include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

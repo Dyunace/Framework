@@ -8,3 +8,6 @@
 #include <time.h>
 
 using namespace std;
+
+#include "Content.h"
+#include "enum.h"

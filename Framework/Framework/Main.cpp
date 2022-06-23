@@ -1,4 +1,4 @@
-// ** Framework v0.4.2
+// ** Framework v1.2
 #define _CRT_SECLRE_NO_WARNING
 #include "Headers.h"
 #include "MainUpdate.h"
@@ -69,12 +69,13 @@ Singleton* Singleton::Instance = nullptr;
 
 int main(void)
 {
+	// ½Ì±ÛÅæ »ç¿ë
 	/*
 	Singleton::GetInstance()->SetNumber(100);
 	cout << Singleton::GetInstance()->GetNumber() << endl;
 	*/
 
-
+	// Æ½ Ä«¿îÆ®
 	/*
 	MainUpdate main;
 	main.Initialize();
@@ -88,8 +89,6 @@ int main(void)
 			Time = GetTickCount64();
 
 			system("cls");
-
-			
 		}
 	}
 	*/

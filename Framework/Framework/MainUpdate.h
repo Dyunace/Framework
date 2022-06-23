@@ -3,6 +3,9 @@
 
 class MainUpdate
 {
+private:
+	int Count;
+	SCENEID Stage;
 public:
 	void Initialize();
 	void Update();
