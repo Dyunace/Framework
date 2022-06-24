@@ -1,4 +1,6 @@
 #include "Logo.h"
+#include "SceneManager.h"
+#include "InputManager.h"
 
 void Logo::Initialize()
 {

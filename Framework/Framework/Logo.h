@@ -1,7 +1,5 @@
 #pragma once
 #include "Scene.h"
-#include "SceneManager.h"
-#include "InputManager.h"
 
 class Logo : public Scene
 {

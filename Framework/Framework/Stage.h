@@ -1,10 +1,11 @@
 #pragma once
 #include "Scene.h"
-#include "SceneManager.h"
-#include "InputManager.h"
 
+class Object;
 class Stage : public Scene
 {
+private:
+	Object* pPlayer;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

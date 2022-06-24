@@ -1,29 +1,34 @@
 #include "Stage.h"
+#include "SceneManager.h"
+#include "Player.h"
 
 void Stage::Initialize()
 {
+	pPlayer = new Player;
+	pPlayer->Initialize();
 }
 
 void Stage::Update()
 {
-	DWORD Key = InputManager::GetInstance()->GetKey();
-
-	if (Key & KEY_UP)
-		SceneManager::GetInstance()->SetScene(EXIT);
+	pPlayer->Update();
 }
 
 void Stage::Render()
 {
+	pPlayer->Render();
 }
 
 void Stage::Release()
 {
+	delete pPlayer;
+	pPlayer = nullptr;
 }
 
-Stage::Stage()
+Stage::Stage() : pPlayer(nullptr)
 {
 }
 
 Stage::~Stage()
 {
+	Release();
 }

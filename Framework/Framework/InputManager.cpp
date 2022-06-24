@@ -31,6 +31,7 @@ void InputManager::InputKey()
 		Key = KEY_ALT;
 }
 
+// KeyTest
 /*
 if (GetAsyncKeyState(VK_UP))
 		cout << "KEY_UP" << endl;
