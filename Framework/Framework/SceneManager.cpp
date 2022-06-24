@@ -1,32 +1,54 @@
 #include "SceneManager.h"
+#include "Logo.h"
+#include "Menu.h"
+#include "Stage.h"
 
 SceneManager* SceneManager::Instance = nullptr;
 
 void SceneManager::SetScene(SCENEID _SceneState)
 {
+	if (SceneState != nullptr)
+		::Safe_Delete(SceneState);
+
 	switch (_SceneState)
 	{
-	case LOGO:
-		cout << "LOGO" << endl;
+	case SCENEID::LOGO:
+		SceneState = new Logo;
 		break;
-	case MENU:
-		cout << "MENU" << endl;
+
+	case SCENEID::MENU:
+		SceneState = new Menu;
 		break;
-	case STAGE:
-		cout << "STAGE" << endl;
+
+	case SCENEID::STAGE:
+		SceneState = new Stage;
 		break;
-	case EXIT:
-		cout << "EXIT" << endl;
+
+	case SCENEID::EXIT:
+		exit(NULL);
 		break;
+
 	default:
 		break;
 	}
+
+	SceneState->Initialize();
 }
 
-SceneManager::SceneManager()
+void SceneManager::Update()
 {
+	SceneState->Update();
 }
 
-SceneManager::~SceneManager()
+void SceneManager::Render()
 {
+	SceneState->Render();
 }
+
+void SceneManager::Release()
+{
+	::Safe_Delete(SceneState);
+}
+
+SceneManager::SceneManager() : SceneState(nullptr) { }
+SceneManager::~SceneManager() { Release(); }

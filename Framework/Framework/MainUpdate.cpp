@@ -2,17 +2,13 @@
 
 void MainUpdate::Initialize()
 {
-	Stage = LOGO;
+	SceneState = LOGO;
+	SceneManager::GetInstance()->SetScene(SceneState);
 }
 
 void MainUpdate::Update()
 {
-	++Count;
-
-	if (Count <= 100)
-	{
-		Count = 0;
-	}
+	InputManager::GetInstance()->InputKey();
 }
 
 void MainUpdate::Render()
@@ -23,7 +19,7 @@ void MainUpdate::Release()
 {
 }
 
-MainUpdate::MainUpdate()
+MainUpdate::MainUpdate() : Count(0)
 {
 }
 
