@@ -11,7 +11,7 @@ ObjectManager::~ObjectManager()
 {
 }
 
-void ObjectManager::AddObejct(Object* _Object)
+void ObjectManager::AddObject(Object* _Object)
 {
 	map<string, list<Object*>>::iterator iter = ObjectList.find(_Object->GetKey());
 
@@ -23,6 +23,16 @@ void ObjectManager::AddObejct(Object* _Object)
 	}
 	else
 		iter->second.push_back(_Object);
+}
+
+list<Object*>* ObjectManager::GetObjectList(string _Object)
+{	
+	map<string, list<Object*>>::iterator iter = ObjectList.find(_Object);
+
+	if (iter == ObjectList.end())
+		return nullptr;
+
+	return &iter->second;
 }
 
 void ObjectManager::Render()

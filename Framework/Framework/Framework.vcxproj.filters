@@ -137,5 +137,8 @@
     <ClInclude Include="ObjectManager.h">
       <Filter>소스 파일\99.Manager\ObjectManager</Filter>
     </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일\include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

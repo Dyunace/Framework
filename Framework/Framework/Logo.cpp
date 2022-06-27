@@ -12,7 +12,12 @@ void Logo::Initialize()
 
 	Object* pPlayer = new Player;
 	pPlayer->Initialize();
-	ObjectManager::GetInstance()->AddObejct(pPlayer);
+
+	Object* pEnemy = new Enemy;
+	pEnemy->Initialize();
+
+	ObjectManager::GetInstance()->AddObject(pPlayer);
+	ObjectManager::GetInstance()->AddObject(pEnemy);
 }
 
 void Logo::Update()

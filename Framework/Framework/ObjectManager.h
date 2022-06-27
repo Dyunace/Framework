@@ -21,7 +21,8 @@ private:
 public:
 	~ObjectManager();
 public:
-	void AddObejct(Object* _Object);
+	void AddObject(Object* _Object);
+	list<Object*>* GetObjectList(string _Object);
 	void Render();
 };
 

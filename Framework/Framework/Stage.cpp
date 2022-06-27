@@ -5,25 +5,31 @@
 
 void Stage::Initialize()
 {
-	//pPlayer = ObjectManager::GetInstance();
-	//pPlayer->Initialize();
+	// 1. 반환 형태가 Object* && list<Object*>
+	// 2. Key 가 전달되어야 함.
+	list<Object*>* PlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
+
+	if (PlayerList != nullptr)
+		pPlayer = PlayerList->front()->Clone();
 }
 
 void Stage::Update()
 {
-	//pPlayer->Update();
+	if(pPlayer)
+		pPlayer->Update();
 }
 
 void Stage::Render()
 {
-	//pPlayer->Render();
+	if (pPlayer)
+		pPlayer->Render();
+
 	ObjectManager::GetInstance()->Render();
 }
 
 void Stage::Release()
 {
-	delete pPlayer;
-	pPlayer = nullptr;
+	::Safe_Delete(pPlayer);
 }
 
 Stage::Stage() : pPlayer(nullptr)

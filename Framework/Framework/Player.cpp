@@ -2,6 +2,7 @@
 #include "InputManager.h"
 
 Player::Player() : Horizontal(0), Vertical(0) { }
+Player::Player(Transform _Info) : Object(_Info), Horizontal(0), Vertical(0) { }
 Player::~Player() { }
 
 void Player::Initialize()

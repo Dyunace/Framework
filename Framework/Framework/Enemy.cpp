@@ -1,5 +1,9 @@
 #include "Enemy.h"
 
+Enemy::Enemy(){}
+Enemy::Enemy(Transform _Info) : Object(_Info) {}
+Enemy::~Enemy(){}
+
 void Enemy::Initialize()
 {
 	strKey = "Enemy";
@@ -18,10 +22,3 @@ void Enemy::Release()
 {
 }
 
-Enemy::Enemy()
-{
-}
-
-Enemy::~Enemy()
-{
-}
