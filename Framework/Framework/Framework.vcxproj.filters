@@ -49,6 +49,9 @@
     <Filter Include="소스 파일\00.MainUpdate">
       <UniqueIdentifier>{efe4d2f2-dc24-48ca-a6d3-7ef3551794d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99.Manager\ObjectManager">
+      <UniqueIdentifier>{b0e79211-2452-4e6b-956f-20831c338ce4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -84,6 +87,9 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>소스 파일\02.Object\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>소스 파일\99.Manager\ObjectManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">
@@ -98,7 +104,7 @@
     <ClInclude Include="enum.h">
       <Filter>헤더 파일\include</Filter>
     </ClInclude>
-    <ClInclude Include="Content.h">
+    <ClInclude Include="Constant.h">
       <Filter>헤더 파일\include</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
@@ -127,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>소스 파일\02.Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>소스 파일\99.Manager\ObjectManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

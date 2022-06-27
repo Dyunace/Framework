@@ -6,6 +6,7 @@ Player::~Player() { }
 
 void Player::Initialize()
 {
+	strKey = "Player";
 	Horizontal = 0;
 	Vertical = 0;
 }
@@ -40,10 +41,11 @@ void Player::Update()
 
 void Player::Render()
 {
+	Message(strKey);
+
 	cout << "X : " << Horizontal << endl;
 	cout << "Y : " << Vertical << endl;
 
-	//Message("Player");
 }
 
 void Player::Release()

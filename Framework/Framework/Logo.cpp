@@ -2,9 +2,17 @@
 #include "SceneManager.h"
 #include "InputManager.h"
 
+#include "ObjectManager.h"
+#include "Player.h"
+#include "Enemy.h"
+
 void Logo::Initialize()
 {
 	str = "Logo";
+
+	Object* pPlayer = new Player;
+	pPlayer->Initialize();
+	ObjectManager::GetInstance()->AddObejct(pPlayer);
 }
 
 void Logo::Update()
