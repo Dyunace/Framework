@@ -1,29 +1,49 @@
 #include "Stage.h"
-#include "Player.h"
 #include "SceneManager.h"
+
 #include "ObjectManager.h"
+#include "Player.h"
+#include "Enemy.h"
+
+#include "CursorManager.h"
 
 void Stage::Initialize()
 {
-	// 1. 반환 형태가 Object* && list<Object*>
-	// 2. Key 가 전달되어야 함.
-	list<Object*>* PlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
+	Object* pEnemyProto = new Enemy;
+	pEnemyProto->Initialize();
 
-	if (PlayerList != nullptr)
-		pPlayer = PlayerList->front()->Clone();
+	for (int i = 0; i < 5; ++i)
+	{
+		srand(DWORD(GetTickCount64() * (i + 1)));
+
+		Object* pEnemy = pEnemyProto->Clone();
+		pEnemy->SetPosition(118.0f, float(rand() % 30));
+
+		ObjectManager::GetInstance()->AddObject(pEnemy);
+	}
 }
 
 void Stage::Update()
 {
-	if(pPlayer)
-		pPlayer->Update();
+	ObjectManager::GetInstance()->Update();
+
+	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("＊");
+	
+	if (pBulletList != nullptr)
+	{
+		for (list<Object*>::iterator iter = pBulletList->begin();
+			iter != pBulletList->end();)
+		{
+			if ((*iter)->GetPosition().x >= 120.0f)
+				iter = pBulletList->erase(iter);
+			else
+				++iter;
+		}
+	}
 }
 
 void Stage::Render()
 {
-	if (pPlayer)
-		pPlayer->Render();
-
 	ObjectManager::GetInstance()->Render();
 }
 

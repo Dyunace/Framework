@@ -23,6 +23,8 @@ public:
 public:
 	void AddObject(Object* _Object);
 	list<Object*>* GetObjectList(string _Object);
+public:
+	void Update();
 	void Render();
 };
 

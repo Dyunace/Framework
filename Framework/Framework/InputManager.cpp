@@ -10,25 +10,25 @@ void InputManager::InputKey()
 		Key |= KEY_UP;
 
 	if (GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('S'))
-		Key = KEY_DOWN;
+		Key |= KEY_DOWN;
 
 	if (GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('A'))
-		Key = KEY_LEFT;
+		Key |= KEY_LEFT;
 
 	if (GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('D'))
-		Key = KEY_RIGHT;
+		Key |= KEY_RIGHT;
 
 	if (GetAsyncKeyState(VK_SPACE))
-		Key = KEY_SPACE;
+		Key |= KEY_SPACE;
 
 	if (GetAsyncKeyState(VK_RETURN))
-		Key = KEY_ENTER;
+		Key |= KEY_ENTER;
 
 	if (GetAsyncKeyState(VK_CONTROL))
-		Key = KEY_CTRL;
+		Key |= KEY_CTRL;
 
 	if (GetAsyncKeyState(VK_MENU))
-		Key = KEY_ALT;
+		Key |= KEY_ALT;
 }
 
 // KeyTest
