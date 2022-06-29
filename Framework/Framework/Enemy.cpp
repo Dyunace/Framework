@@ -17,7 +17,7 @@ void Enemy::Initialize()
 
 int Enemy::Update()
 {
-	TransInfo.Position.x -= 2;
+	//TransInfo.Position.x -= 2;
 
 	if (TransInfo.Position.x <= 0)
 		return BUFFER_OVER;

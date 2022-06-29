@@ -58,6 +58,9 @@
     <Filter Include="소스 파일\02.Object\Bullet">
       <UniqueIdentifier>{bbb19313-5ea4-4c3c-ba5b-157800f9cb5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99.Manager\CollisionManager">
+      <UniqueIdentifier>{b4123e74-4e2d-485b-9c47-42cda693cf9e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>소스 파일\02.Object\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>소스 파일\99.Manager\CollisionManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

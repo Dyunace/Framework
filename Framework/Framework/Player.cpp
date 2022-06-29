@@ -48,7 +48,10 @@ int Player::Update()
 
 void Player::Render()
 {
-	CursorManager::Draw(TransInfo.Position.x, TransInfo.Position.y, strKey);
+	CursorManager::Draw(
+		TransInfo.Position.x + TransInfo.Scale.x * 0.5f,
+		TransInfo.Position.y,
+		strKey);
 }
 
 void Player::Release()
