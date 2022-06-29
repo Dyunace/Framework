@@ -10,3 +10,4 @@ const DWORD KEY_CTRL	= 64;
 const DWORD KEY_ALT		= 128;
 
 const int BUFFER_OVER = 1;
+const int MAX_SIZE = 2;

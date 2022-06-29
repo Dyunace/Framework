@@ -6,6 +6,8 @@ class Object
 protected:
 	Transform TransInfo;
 	string strKey;
+
+	char* Buffer[MAX_SIZE];
 public:
 	virtual void Initialize() PURE;
 	virtual int Update() PURE;
