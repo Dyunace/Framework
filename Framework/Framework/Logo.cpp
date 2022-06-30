@@ -1,23 +1,17 @@
 #include "Logo.h"
 #include "SceneManager.h"
 #include "InputManager.h"
-
 #include "ObjectManager.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "ObjectFactory.h"
 
 void Logo::Initialize()
 {
 	str = "Logo";
 
-	Object* pPlayer = new Player;
-	pPlayer->Initialize();
-
-	Object* pEnemy = new Enemy;
-	pEnemy->Initialize();
-
-	ObjectManager::GetInstance()->AddObject(pPlayer);
-	ObjectManager::GetInstance()->AddObject(pEnemy);
+	ObjectManager::GetInstance()->AddObject(ObjectFactory<Player>::CreateObject());
+	//ObjectManager::GetInstance()->AddObject(ObjectFactory<Enemy>::CreateObject());
 }
 
 void Logo::Update()

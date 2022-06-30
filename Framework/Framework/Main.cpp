@@ -1,8 +1,43 @@
-// ** Framework v6.2 CollisionManager
+// ** Framework v7.1 ObjectFactory & UserInterface
 #define _CRT_SECLRE_NO_WARNING
 #include "Headers.h"
 #include "MainUpdate.h"
 
+/*
+// 템플릿 : 자료형을 보내줄 수 있다.
+template <typename T, typename T1>
+class Temp
+{
+public:
+	static T* func()
+	{
+		return new T;
+	}
+	static T* func(int i)
+	{
+		return new T(i);
+	}
+	static T* func(float f)
+	{
+		return new T(f);
+	}
+
+	static T* func(int i, int j)
+	{
+		return new T(f);
+	}
+};
+class A
+{
+public:
+	int Number;
+};
+class B
+{
+public:
+	int Number;
+};
+*/
 
 int main(void)
 {

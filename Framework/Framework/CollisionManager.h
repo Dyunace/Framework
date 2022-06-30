@@ -22,19 +22,19 @@ public:
 		*/
 
 		// 횡스크롤 게임
+		/*
 		if (Position_A.x + (Scale_A.x * 0.5f) > Position_B.x - (Scale_B.x * 0.5f) &&
 			Position_B.x + (Scale_B.x * 0.5f) > Position_A.x - (Scale_A.x * 0.5f) &&
 			Position_A.y + (Scale_A.y * 0.5f) == Position_B.y + (Scale_B.y * 0.5f))
 			return true;
+		*/
 
 		// 사이드뷰 게임
-		/*
 		if (Position_A.x + (Scale_A.x * 0.5f) > Position_B.x - (Scale_B.x * 0.5f) &&
 			Position_B.x + (Scale_B.x * 0.5f) > Position_A.x - (Scale_A.x * 0.5f) &&
 			Position_A.y + (Scale_A.y * 0.5f) > Position_B.y - (Scale_B.y * 0.5f) &&
 			Position_B.y + (Scale_B.y * 0.5f) > Position_A.y - (Scale_A.y * 0.5f))
 			return true;
-		*/
 
 		return false;
 	}

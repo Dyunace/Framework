@@ -1,18 +1,16 @@
 #pragma once
-#include "Object.h"
+#include "UserInterface.h"
 
-class Player : public Object
+class ScrollBox : public UserInterface
 {
 public:
-	Player();
-	Player(Transform _Info);
-	virtual ~Player();
+	ScrollBox();
+	ScrollBox(Transform _Info);
+	virtual ~ScrollBox();
 public:
 	virtual void Initialize() override;
 	virtual int Update() override;
 	virtual void Render() override;
 	virtual void Release() override;
-
-	virtual Object* Clone() override { return new Player(*this); };
 };
 

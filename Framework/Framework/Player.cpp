@@ -1,11 +1,12 @@
 #include "Player.h"
 #include "Bullet.h"
 #include "InputManager.h"
-
 #include "ObjectManager.h"
 #include "CursorManager.h"
+#include "ObjectFactory.h"
 
-Player::Player() : Horizontal(0), Vertical(0) { }
+Player::Player() { }
+Player::Player(Transform _Info) : Object(_Info){}
 Player::~Player() { }
 
 void Player::Initialize()
@@ -39,11 +40,8 @@ int Player::Update()
 
 	if (Key & KEY_SPACE)
 	{
-		Object* pBullet = new Bullet;
-		pBullet->Initialize();
-		pBullet->SetPosition(TransInfo.Position);
-
-		ObjectManager::GetInstance()->AddObject(pBullet);
+		ObjectManager::GetInstance()->AddObject(
+			ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
 	}
 
 	return 0;
@@ -51,12 +49,12 @@ int Player::Update()
 
 void Player::Render()
 {
-	for (int i = 0; i < 2; ++i)
+	for (int i = 0; i < MAX_SIZE; ++i)
 	{
-	CursorManager::Draw(
-		TransInfo.Position.x - TransInfo.Scale.x * 0.5f,
-		TransInfo.Position.y - TransInfo.Scale.x * 0.5f + i,
-		Buffer[i]);
+		CursorManager::Draw(
+			TransInfo.Position.x - TransInfo.Scale.x * 0.5f,
+			TransInfo.Position.y - TransInfo.Scale.y * 0.5f + i,
+			Buffer[i]);
 	}
 }
 
