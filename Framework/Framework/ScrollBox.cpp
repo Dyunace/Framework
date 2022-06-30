@@ -23,7 +23,7 @@ void ScrollBox::Initialize()
 	//TextureList.push_back("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
 	TextureList.push_back(" £¯£þ£þ£þ£þ£þ£þ£¯£þ¡¬ ¦¢");
 	TextureList.push_back("¦¢¡¡¡¡¡¡¡¡¡¡¡¡¦¢¡¡__£¯¦¢");
-	TextureList.push_back(" ¡¬____________¡¬_____£¯");
+	TextureList.push_back(" ¡¬____________¡¬____£¯");
 
 	TransInfo.Position = Vector3(float(120 / 2), 5.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
@@ -39,7 +39,8 @@ int ScrollBox::Update()
 
 	if (dwKey & KEY_CTRL)
 	{
-		TextureList.insert(iter, ("¡¡¦¢¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¦¢"));
+		if (TransInfo.Position.y + TextureList.size() < 29)
+			TextureList.insert(iter, ("¡¡¦¢¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¦¢"));
 	}
 
 	return 0;

@@ -14,10 +14,13 @@ Cloud::~Cloud()
 
 void Cloud::Initialize()
 {
+	
 }
 
 int Cloud::Update()
 {
+
+
     return 0;
 }
 

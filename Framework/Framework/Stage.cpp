@@ -84,7 +84,12 @@ void Stage::Update()
 		}
 	}
 
-	Enable_UI();
+	DWORD dwKey = InputManager::GetInstance()->GetKey();
+
+	if (dwKey & KEY_TAB)
+	{
+		Enable_UI();
+	}
 
 	if (Check)
 		pUI->Update();
@@ -123,6 +128,5 @@ void Stage::Release()
 
 void Stage::Enable_UI()
 {
-	if (GetAsyncKeyState(VK_TAB))
-		Check = !Check;
+	Check = !Check;
 }
