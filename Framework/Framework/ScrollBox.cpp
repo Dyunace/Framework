@@ -2,25 +2,15 @@
 #include "CursorManager.h"
 #include "InputManager.h"
 
-ScrollBox::ScrollBox()
-{
-}
-
-ScrollBox::ScrollBox(Transform _Info) : UserInterface(_Info)
-{
-}
-
-ScrollBox::~ScrollBox()
-{
-}
+ScrollBox::ScrollBox(){}
+ScrollBox::ScrollBox(Transform _Info) : UserInterface(_Info){}
+ScrollBox::~ScrollBox(){}
 
 void ScrollBox::Initialize()
 {
 	strKey = "ScrollBox";
 
-	//TextureList.push_back("¡¡¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
 	TextureList.push_back("¡¡ £¯£þ£þ£þ£þ£þ£þ£þ£þ£þ£¯_¡¬");
-	//TextureList.push_back("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
 	TextureList.push_back(" £¯£þ£þ£þ£þ£þ£þ£¯£þ¡¬ ¦¢");
 	TextureList.push_back("¦¢¡¡¡¡¡¡¡¡¡¡¡¡¦¢¡¡__£¯¦¢");
 	TextureList.push_back(" ¡¬____________¡¬____£¯");

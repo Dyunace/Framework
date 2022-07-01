@@ -7,6 +7,7 @@ class Stage : public Scene
 {
 private:
 	UserInterface* pUI;
+	// 스크롤 박스 체크용
 	int Check;
 public:
 	virtual void Initialize()override;

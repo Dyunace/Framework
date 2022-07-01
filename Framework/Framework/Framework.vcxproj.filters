@@ -76,6 +76,9 @@
     <Filter Include="소스 파일\02.Object\Cloud">
       <UniqueIdentifier>{173b435d-ceec-4097-993f-28aba1067085}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99.Manager\MathManager">
+      <UniqueIdentifier>{64a293ff-1afa-4588-bdad-9ef0c7a7913f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="Cloud.h">
       <Filter>소스 파일\02.Object\Cloud</Filter>
+    </ClInclude>
+    <ClInclude Include="MathManager.h">
+      <Filter>소스 파일\99.Manager\MathManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

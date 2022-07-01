@@ -9,12 +9,8 @@
 #include "CursorManager.h"
 #include "CollisionManager.h"
 
-Stage::Stage() : Check(0)
-{
-}
-
-Stage::~Stage()
-{
+Stage::Stage() : Check(0){}
+Stage::~Stage(){
 	Release();
 }
 
@@ -32,7 +28,6 @@ void Stage::Initialize()
 		srand(DWORD(GetTickCount64() * (i + 1)));
 
 		Object* pEnemy = pEnemyProto->Clone();
-		pEnemy->SetPosition(118.0f, float(rand() % 30));
 		pEnemy->SetPosition(float(rand() % 118), float(rand() % 30));
 
 		ObjectManager::GetInstance()->AddObject(pEnemy);

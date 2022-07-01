@@ -20,8 +20,6 @@ void Enemy::Initialize()
 
 int Enemy::Update()
 {
-	//TransInfo.Position.x -= 2;
-
 	if (TransInfo.Position.x <= 0)
 		return BUFFER_OVER;
 
@@ -39,7 +37,5 @@ void Enemy::Render()
 	}
 }
 
-void Enemy::Release()
-{
-}
+void Enemy::Release(){}
 
