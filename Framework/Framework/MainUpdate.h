@@ -1,7 +1,5 @@
 #pragma once
 #include "Headers.h"
-#include "SceneManager.h"
-#include "InputManager.h"
 
 class MainUpdate
 {

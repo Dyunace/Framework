@@ -13,15 +13,14 @@ public:
 
 		return Instance;
 	}
-
+private:
+	InputManager();
+public:
+	~InputManager();
 private:
 	DWORD Key;
 public:
 	DWORD GetKey() const { return Key; }
 	void InputKey();
-private:
-	InputManager();
-public:
-	~InputManager();
 };
 

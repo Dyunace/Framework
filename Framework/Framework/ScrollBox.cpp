@@ -38,13 +38,13 @@ int ScrollBox::Update()
 
 void ScrollBox::Render()
 {
-	for (int i = 0; i < TextureList.size(); ++i)
-	{
-		CursorManager::Draw(
-			TransInfo.Position.x - (TransInfo.Scale.x * 0.5f),
-			TransInfo.Position.y - (TransInfo.Scale.y * 0.5f) + i,
-			TextureList[i]);
-	}
+	//for (int i = 0; i < TextureList.size(); ++i)
+	//{
+	//	CursorManager::Draw(
+	//		TransInfo.Position.x - (TransInfo.Scale.x * 0.5f),
+	//		TransInfo.Position.y - (TransInfo.Scale.y * 0.5f) + i,
+	//		TextureList[i]);
+	//}
 }
 
 void ScrollBox::Release()

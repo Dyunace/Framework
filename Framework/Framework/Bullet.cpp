@@ -16,63 +16,34 @@ void Bullet::Initialize()
 	TransInfo.Position = Vector3(20.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
-	TransInfo.Direction = Vector3(0.1f, -0.06f);
-
-	Vector3 Target = Vector3(60.0f, 15.0f);
-	
-	Vector3 Result = Target - TransInfo.Position;
-	
-	float Distance = sqrt((Result.x * Result.x) + (Result.y * Result.y));
-	
-
+	TransInfo.Direction = Vector3(0.0f, -0.0f);
 }
 
 int Bullet::Update()
 {
-	//Vector3 Target = Vector3(60.0f, 15.0f);
-	//
-	//Vector3 Result = Target - TransInfo.Position;
-	//
-	//float Distance = sqrt((Result.x * Result.x) + (Result.y * Result.y));
-	////TransInfo.Direction /= Distance;
-	//
-	//if (Result.x < Result.y)
-	//{
-	//	Result.x /= Result.y;
-	//	Result.y /= Result.y;
-	//}
-	//else
-	//{
-	//	Result.y /= Result.x;
-	//	Result.x /= Result.x;
-	//}
-	//
-	//cout << Distance << endl;
-	//cout << TransInfo.Direction.x << endl;
-	//cout << TransInfo.Direction.y << endl;
-	//
-	//TransInfo.Position += Result;
+
+	Vector3 Target = Vector3(60.0f, 15.0f);
+
+	Vector3 TargetVector = Target - TransInfo.Position;
+
+	float Distance = sqrt((TargetVector.x * TargetVector.x) + (TargetVector.y * TargetVector.y));
+
+	TransInfo.Direction.x = TargetVector.x / Distance;
+	TransInfo.Direction.y = TargetVector.y / Distance;
+
 	TransInfo.Position += TransInfo.Direction;
-
 	
-	cout << TransInfo.Position.x << endl;
-	cout << TransInfo.Position.y << endl;
-	cout << TransInfo.Direction.x << endl;
-	cout << TransInfo.Direction.y << endl;
-
+	//cout << "PosX :" << TransInfo.Position.x << endl;
+	//cout << "PosY :" << TransInfo.Position.y << endl;
+	//cout << "SpdX :" << TransInfo.Direction.x << endl;
+	//cout << "SpdY :" << TransInfo.Direction.y << endl << endl;
 
 	return 0;
 }
 
 void Bullet::Render()
 {
-	for (int i = 0; i < MAX_SIZE; ++i)
-	{
-		CursorManager::Draw(
-			TransInfo.Position.x - TransInfo.Scale.x * 0.5f ,
-			TransInfo.Position.y - TransInfo.Scale.y * 0.5f + i,
-			Buffer[i]);
-	}
+	CursorManager::GetInstance()->WriteBuffer(TransInfo.Position, (char*)"Bullet", 0);
 }
 
 void Bullet::Release()
