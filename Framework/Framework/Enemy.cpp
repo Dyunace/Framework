@@ -28,7 +28,7 @@ int Enemy::Update()
 
 void Enemy::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(TransInfo.Position, (char*)"Enemy", 0);
+	CursorManager::GetInstance()->WriteBuffer(TransInfo.Position, (char*)"Enemy");
 }
 
 void Enemy::Release(){}

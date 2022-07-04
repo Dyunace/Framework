@@ -8,9 +8,11 @@
 
 void Logo::Initialize()
 {
+	ObjectManager::GetInstance()->AddObject(ObjectFactory<Player>::CreateObject());
 	str = "Logo";
 
-	ObjectManager::GetInstance()->AddObject(ObjectFactory<Player>::CreateObject());
+	SceneManager::GetInstance()->SetScene(STAGE);
+
 	//ObjectManager::GetInstance()->AddObject(ObjectFactory<Enemy>::CreateObject());
 }
 

@@ -43,7 +43,7 @@ int Bullet::Update()
 
 void Bullet::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(TransInfo.Position, (char*)"Bullet", 0);
+	CursorManager::GetInstance()->WriteBuffer(TransInfo.Position, (char*)"Bullet");
 }
 
 void Bullet::Release()

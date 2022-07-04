@@ -49,7 +49,7 @@ int Player::Update()
 
 void Player::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(TransInfo.Position, (char*)"Player", 0);
+	CursorManager::GetInstance()->WriteBuffer(TransInfo.Position, (char*)"Player", 2);
 }
 
 void Player::Release()

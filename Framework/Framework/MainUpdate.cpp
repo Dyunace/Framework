@@ -5,8 +5,7 @@
 
 void MainUpdate::Initialize()
 {
-	CursorManager::GetInstance()->CreateBuffer(120.0f, 30.0f);
-
+	CursorManager::GetInstance()->CreateBuffer(ConsoleWidthSize, ConsoleHeightSize);
 	SceneManager::GetInstance()->SetScene(LOGO);
 }
 

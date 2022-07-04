@@ -30,7 +30,7 @@ int Cloud::Update()
 
 void Cloud::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(TransInfo.Position, (char*)"Cloud", 0);
+	CursorManager::GetInstance()->WriteBuffer(TransInfo.Position, (char*)"Cloud");
 }
 
 void Cloud::Release()

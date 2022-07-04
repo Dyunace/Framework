@@ -12,3 +12,6 @@ const DWORD KEY_TAB		= 256;
 
 const int BUFFER_OVER = 1;
 const int MAX_SIZE = 2;
+
+const SHORT ConsoleWidthSize = 120;
+const SHORT ConsoleHeightSize = 30;
