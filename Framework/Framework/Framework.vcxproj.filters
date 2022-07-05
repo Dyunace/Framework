@@ -79,6 +79,9 @@
     <Filter Include="소스 파일\99.Manager\MathManager">
       <UniqueIdentifier>{64a293ff-1afa-4588-bdad-9ef0c7a7913f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\98.Pattern">
+      <UniqueIdentifier>{a6a77f57-1596-4bd4-8b48-1721fac2dc06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -134,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="CursorManager.cpp">
       <Filter>소스 파일\99.Manager\CursorManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPool.cpp">
+      <Filter>소스 파일\98.Pattern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="MathManager.h">
       <Filter>소스 파일\99.Manager\MathManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>소스 파일\98.Pattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

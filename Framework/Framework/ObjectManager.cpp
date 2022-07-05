@@ -1,6 +1,7 @@
 #include "ObjectManager.h"
 #include "CollisionManager.h"
 #include "Object.h"
+#include "ObjectPool.h"
 
 ObjectManager* ObjectManager::Instance = nullptr;
 
@@ -20,7 +21,8 @@ void ObjectManager::AddObject(Object* _Object)
 	{
 		list<Object*> TempList;
 		TempList.push_back(_Object);
-		ObjectList.insert(make_pair(_Object->GetKey(), TempList));
+		ObjectPool::GetInstance()->AddObject(_Object->GetKey(), TempList);
+		//ObjectList.insert(make_pair(_Object->GetKey(), TempList));
 	}
 	else
 		iter->second.push_back(_Object);
@@ -38,26 +40,7 @@ list<Object*>* ObjectManager::GetObjectList(string _Object)
 
 void ObjectManager::Update()
 {
-	for (map<string, list<Object*>>::iterator iter = ObjectList.begin();
-		iter != ObjectList.end(); ++iter)
-	{
-		for (list<Object*>::iterator iter2 = iter->second.begin();
-			iter2 != iter->second.end(); )
-		{
-			int result = (*iter2)->Update();
-
-			if (result == BUFFER_OVER)
-			{
-				Object* Temp = *iter2;
-				iter2 = iter->second.erase(iter2);
-
-				delete Temp;
-				Temp = nullptr;
-			}
-			else
-				++iter2;
-		}
-	}
+	ObjectPool::GetInstance()->Update();
 }
 
 void ObjectManager::Render()
