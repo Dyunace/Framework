@@ -36,75 +36,56 @@ void Stage::Initialize()
 
 void Stage::Update()
 {
+	DWORD dwKey = InputManager::GetInstance()->GetKey();
+	if (dwKey & KEY_TAB)	{		Enable_UI();	}
+
 	ObjectManager::GetInstance()->Update();
 
-	Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
-	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
-	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
-	
-	if (pBulletList != nullptr)
-	{
-		for (list<Object*>::iterator iter = pBulletList->begin();
-			iter != pBulletList->end();)
-		{
-			if ((*iter)->GetPosition().x >= 120.0f)
-				iter = pBulletList->erase(iter);
-			else
-				++iter;
-		}
-	}
+	//Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
+	//list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
+	//list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 
-	if (pPlayer != nullptr)
-	{
-		if (pEnemyList != nullptr)
-		{
-			for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
-				Enemyiter != pEnemyList->end(); ++Enemyiter)
-			{
-				if (pBulletList != nullptr)
-				{
-					for (list<Object*>::iterator Bulletiter = pBulletList->begin();
-						Bulletiter != pBulletList->end(); ++Bulletiter)
-					{
-						if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
-						{
-							
-						}
-					}
-				}
-
-			}
-		}
-	}
-
-	DWORD dwKey = InputManager::GetInstance()->GetKey();
-
-	if (dwKey & KEY_TAB)
-	{
-		Enable_UI();
-	}
-
-	if (Check)
-		pUI->Update();
-
-	//if (pBulletList != nullptr && pEnemyList != nullptr)
+	//if (pBulletList != nullptr)
 	//{
-	//	for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
-	//			Enemyiter != pEnemyList->end(); ++Enemyiter)
+	//	for (list<Object*>::iterator iter = pBulletList->begin();
+	//		iter != pBulletList->end(); )
 	//	{
-	//		for (list<Object*>::iterator Bulletiter = pBulletList->begin();
-	//			Bulletiter != pBulletList->end(); )
+	//		if ((*iter)->GetPosition().x >= 120.0f)
 	//		{
-	//			if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
+	//			iter = pBulletList->erase(iter);
+	//		}
+	//		else
+	//			++iter;
+	//	}
+	//}
+	
+	//if (pPlayer != nullptr)
+	//{
+	//	if (pEnemyList != nullptr)
+	//	{
+	//		for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
+	//			Enemyiter != pEnemyList->end(); ++Enemyiter)
+	//		{
+	//			if (CollisionManager::Collision(pPlayer, *Enemyiter))
 	//			{
-	//				CursorManager::Draw(50.0f, 1.0f, "충돌입니다");
-	//				Bulletiter = pBulletList->erase(Bulletiter);
 	//			}
-	//			else
-	//				++Bulletiter;
+	//
+	//			if (pBulletList != nullptr)
+	//			{
+	//				for (list<Object*>::iterator Bulletiter = pBulletList->begin();
+	//					Bulletiter != pBulletList->end(); ++Bulletiter)
+	//				{
+	//					if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
+	//					{
+	//					}
+	//				}
+	//			}
 	//		}
 	//	}
 	//}
+
+	if (Check)
+		pUI->Update();
 }
 
 void Stage::Render()

@@ -38,4 +38,12 @@ public:
 
 		return false;
 	}
+
+	static bool BulletCollision(float _Scale, float _Distance)
+	{
+		if (_Scale < _Distance)
+			return true;
+
+		return false;
+	}
 };

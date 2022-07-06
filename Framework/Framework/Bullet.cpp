@@ -1,6 +1,7 @@
 #include "Bullet.h"
-
 #include "CursorManager.h"
+#include "MathManager.h"
+#include "CollisionManager.h"
 
 Bullet::Bullet(){}
 Bullet::Bullet(Transform _Info) : Object(_Info) { }
@@ -16,27 +17,21 @@ void Bullet::Initialize()
 	TransInfo.Position = Vector3(20.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
-	TransInfo.Direction = Vector3(0.0f, -0.0f);
+
+	TransInfo.Direction = Vector3(0.0f, 0.0f);
 }
 
 int Bullet::Update()
 {
+	TransInfo.Direction = MathManager::GetDirection(TransInfo.Position, Vector3(60.0f, 15.0f));
 
-	Vector3 Target = Vector3(60.0f, 15.0f);
+	//TransInfo.Position += TransInfo.Direction;
+	TransInfo.Position += Vector3(2.0f, 0.0f);
 
-	Vector3 TargetVector = Target - TransInfo.Position;
+	float Distance = MathManager::GetDistance(TransInfo.Position, Vector3(60.0f, 15.0f));
 
-	float Distance = sqrt((TargetVector.x * TargetVector.x) + (TargetVector.y * TargetVector.y));
-
-	TransInfo.Direction.x = TargetVector.x / Distance;
-	TransInfo.Direction.y = TargetVector.y / Distance;
-
-	TransInfo.Position += TransInfo.Direction;
-	
-	//cout << "PosX :" << TransInfo.Position.x << endl;
-	//cout << "PosY :" << TransInfo.Position.y << endl;
-	//cout << "SpdX :" << TransInfo.Direction.x << endl;
-	//cout << "SpdY :" << TransInfo.Direction.y << endl << endl;
+	if (Distance < 4)
+		return BUFFER_OVER;
 
 	return 0;
 }
