@@ -2,21 +2,14 @@
 #include "Object.h"
 
 ObjectPool* ObjectPool::Instance = nullptr;
+map<string, list<Object*>> ObjectPool::EnableList;
 
 ObjectPool::ObjectPool()
 {
+
 }
 
 ObjectPool::~ObjectPool()
-{
-}
-
-void ObjectPool::AddObject(string _Key, list<Object*> _List)
-{
-	EnableList.insert(make_pair(_Key, _List));
-}
-
-void ObjectPool::AddObject(Object* _Object)
 {
 
 }
@@ -40,7 +33,7 @@ void ObjectPool::Update()
 				if (Disableiter == DisableList.end())
 				{
 					list<Object*> TempList;
-					TempList.push_back(*iter2);
+					TempList.push_back((*iter2));
 					DisableList.insert(make_pair((*iter2)->GetKey(), TempList));
 				}
 				else
@@ -48,11 +41,10 @@ void ObjectPool::Update()
 
 				(*iter).second.erase(iter2);
 			}
-				break;
+			break;
 
 			default:
 				++iter2;
-				break;
 			}
 		}
 	}

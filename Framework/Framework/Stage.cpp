@@ -9,7 +9,7 @@
 #include "CursorManager.h"
 #include "CollisionManager.h"
 
-Stage::Stage() : Check(0){}
+Stage::Stage() : Check(0), pUI(nullptr) {}
 Stage::~Stage(){
 	Release();
 }

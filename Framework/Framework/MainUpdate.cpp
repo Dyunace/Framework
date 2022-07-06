@@ -26,7 +26,7 @@ void MainUpdate::Release()
 {
 }
 
-MainUpdate::MainUpdate() : Count(0)
+MainUpdate::MainUpdate()
 {
 }
 
