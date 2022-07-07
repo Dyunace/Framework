@@ -4,6 +4,7 @@
 
 ObjectPool* ObjectPool::Instance = nullptr;
 map<string, list<Object*>> ObjectPool::EnableList;
+map<string, list<Object*>> ObjectPool::DisableList;
 
 ObjectPool::ObjectPool()
 {

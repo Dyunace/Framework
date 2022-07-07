@@ -7,6 +7,7 @@ ObjectManager* ObjectManager::Instance = nullptr;
 ObjectManager::ObjectManager()
 {
 	EnableList = ObjectPool::GetEnableList();
+	DisableList = ObjectPool::GetDisableList();
 }
 
 ObjectManager::~ObjectManager()
@@ -17,7 +18,7 @@ ObjectManager::~ObjectManager()
 void ObjectManager::AddObject(Object* _Object)
 {
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
-
+	
 	if (iter == EnableList->end())
 	{
 		list<Object*> TempList;
@@ -38,6 +39,16 @@ list<Object*>* ObjectManager::GetObjectList(string _strKey)
 	return &iter->second;
 }
 
+list<Object*>* ObjectManager::GetDisObjectList(string _strKey)
+{
+	map<string, list<Object*>>::iterator iter = DisableList->find(_strKey);
+
+	if (iter == DisableList->end())
+		return nullptr;
+
+	return &iter->second;
+}
+
 list<Object*>::iterator ObjectManager::ThrowObject(list<Object*>::iterator _Where, Object* _Object)
 {
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
@@ -47,6 +58,34 @@ list<Object*>::iterator ObjectManager::ThrowObject(list<Object*>::iterator _Wher
 
 	ObjectPool::GetInstance()->CatchObject(_Object);
 	return iter->second.erase(_Where);
+}
+
+void ObjectManager::RecycleObject(string _Key)
+{
+	auto Disiter = DisableList->find(_Key);
+	auto Eniter = EnableList->find(_Key);
+
+	auto pBullet = Disiter->second.front();
+
+	if (Disiter == DisableList->end())
+		return;
+	else
+	{
+		if (Disiter->second.size() == 0)
+		{
+			Eniter->second.push_back(pBullet);
+			Disiter->second.pop_front();
+		}
+	}
+	// 이 함수에 포지션 매개변수 추가하기
+	//pBullet->Initialize();
+	//pBullet->SetPosition(TransInfo.Position);
+	//
+	//auto Disableiter = DisableList->find(_Key);
+	//auto Enableiter = EnableList->find(_Key);
+	//
+	//Enableiter->second.push_back(Disableiter->second.front());
+	//Disableiter->second.pop_front();
 }
 
 void ObjectManager::Update()

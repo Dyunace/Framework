@@ -43,8 +43,26 @@ int Player::Update()
 
 	if (dwKey & KEY_SPACE)
 	{
+		auto EnableList = ObjectManager::GetInstance()->GetObjectList("Bullet");
+		auto DisableList = ObjectManager::GetInstance()->GetDisObjectList("Bullet");
 
-		ObjectManager::GetInstance()->AddObject(ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
+		if (DisableList->size() == 0)
+		{
+			ObjectManager::GetInstance()->AddObject(ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
+		}
+		else
+		{
+			//ObjectManager::GetInstance()->RecycleObject("Bullet");
+
+			auto pBullet = DisableList->front();
+			EnableList->push_back(pBullet);
+			DisableList->pop_front();
+			
+			pBullet->Initialize();
+			pBullet->SetPosition(TransInfo.Position);
+
+			CursorManager::GetInstance()->WriteBuffer(15.0f, 2.0f, (char*)"Recycle Bullets");
+		}
 	}
 
 	return 0;

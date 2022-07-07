@@ -3,8 +3,6 @@
 
 class Player : public Object
 {
-private:
-	map<string, list<Object*>>* DisableList;
 public:
 	Player();
 	Player(Transform _Info);

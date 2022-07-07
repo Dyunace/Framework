@@ -27,7 +27,8 @@ int Bullet::Update()
 	TransInfo.Direction = MathManager::GetDirection(
 		TransInfo.Position, Vector3(60.0f, 15.0f));
 
-	TransInfo.Position += TransInfo.Direction * 1.5f;
+	//TransInfo.Position += TransInfo.Direction * 1.5f;
+	TransInfo.Position += Vector3(2.0f, 0.0f);
 
 	return 0;
 }
