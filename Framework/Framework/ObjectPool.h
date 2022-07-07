@@ -18,7 +18,6 @@ private:
 	map<string, list<Object*>> DisableList;
 public:
 	static map<string, list<Object*>>* GetEnableList() { return &EnableList; }
-	map<string, list<Object*>>* GetDisableList() { return &DisableList; }
 	void CatchObject(Object* _Object);
 	void Update();
 private:

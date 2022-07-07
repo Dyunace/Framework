@@ -23,8 +23,6 @@ void Player::Initialize()
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
 
 	Color = 15;
-
-	DisableList = ObjectPool::GetInstance()->GetDisableList();
 }
 
 int Player::Update()

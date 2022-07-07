@@ -14,7 +14,6 @@ ObjectManager::~ObjectManager()
 
 }
 
-
 void ObjectManager::AddObject(Object* _Object)
 {
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
