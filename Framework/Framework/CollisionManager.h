@@ -1,11 +1,12 @@
 #pragma once
 #include "Headers.h"
 #include "Object.h"
+#include "MathManager.h"
 
 class CollisionManager
 {
 public:
-	static bool Collision (const Object* _ObjA, const Object* _ObjB)
+	static bool RectCollision (const Object* _ObjA, const Object* _ObjB)
 	{
 		Vector3 Position_A = _ObjA->GetPosition();
 		Vector3 Position_B = _ObjB->GetPosition();
@@ -39,9 +40,13 @@ public:
 		return false;
 	}
 
-	static bool BulletCollision(float _Scale, float _Distance)
+	static bool CircleCollision(const Object* _ObjA, const Object* _ObjB)
 	{
-		if (_Scale < _Distance)
+		float Distance = MathManager::GetDistance(_ObjA->GetPosition(), _ObjB->GetPosition());
+
+		float Sum = _ObjA->GetScale().x * 0.5f + _ObjA->GetScale().x * 0.5f;
+
+		if (Distance < Sum)
 			return true;
 
 		return false;

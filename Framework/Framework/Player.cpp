@@ -1,13 +1,15 @@
 #include "Player.h"
-#include "Bullet.h"
 #include "InputManager.h"
-#include "ObjectManager.h"
 #include "CursorManager.h"
+#include "Bullet.h"
+#include "ObjectManager.h"
 #include "ObjectFactory.h"
+#include "ObjectPool.h"
 
 Player::Player() { }
-Player::Player(Transform _Info) : Object(_Info){}
+Player::Player(Transform _TransInfo) : Object(_TransInfo) { }
 Player::~Player() { }
+
 
 void Player::Initialize()
 {
@@ -19,29 +21,32 @@ void Player::Initialize()
 	TransInfo.Position = Vector3(20.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
+
+	Color = 15;
+
+	DisableList = ObjectPool::GetInstance()->GetDisableList();
 }
 
 int Player::Update()
 {
-	
-	DWORD Key = InputManager::GetInstance()->GetKey();
+	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (Key & KEY_UP)
+	if (dwKey & KEY_UP)
 		TransInfo.Position.y -= 1;
 
-	if (Key & KEY_DOWN)
+	if (dwKey & KEY_DOWN)
 		TransInfo.Position.y += 1;
 
-	if (Key & KEY_LEFT)
+	if (dwKey & KEY_LEFT)
 		TransInfo.Position.x -= 1;
 
-	if (Key & KEY_RIGHT)
+	if (dwKey & KEY_RIGHT)
 		TransInfo.Position.x += 1;
 
-	if (Key & KEY_SPACE)
+	if (dwKey & KEY_SPACE)
 	{
-		ObjectManager::GetInstance()->AddObject(
-			ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
+
+		ObjectManager::GetInstance()->AddObject(ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
 	}
 
 	return 0;
@@ -49,9 +54,11 @@ int Player::Update()
 
 void Player::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(TransInfo.Position, (char*)"Player", 2);
+	CursorManager::GetInstance()->WriteBuffer(
+		TransInfo.Position, (char*)"Player", Color);
 }
 
 void Player::Release()
 {
+
 }

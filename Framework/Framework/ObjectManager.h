@@ -23,6 +23,7 @@ public:
 public:
 	void AddObject(Object* _Object);
 	list<Object*>* GetObjectList(string _Object);
+	list<Object*>::iterator ThrowObject(list<Object*>::iterator _Where, Object* _Object);
 public:
 	void Update();
 	void Render();

@@ -1,5 +1,7 @@
 #pragma once
 
+
+
 #define Message(str) (cout << str << endl)
 
 template <typename T>

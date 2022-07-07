@@ -1,5 +1,5 @@
 // ** Framework v10.1 BulletCollision
-#define _CRT_SECLRE_NO_WARNING
+#define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
 
