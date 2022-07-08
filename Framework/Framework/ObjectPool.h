@@ -15,12 +15,11 @@ public:
 	}
 private:
 	static map<string, list<Object*>> EnableList;
-	static map<string, list<Object*>> DisableList;
+	map<string, list<Object*>> DisableList;
 public:
 	static map<string, list<Object*>>* GetEnableList() { return &EnableList; }
-	static map<string, list<Object*>>* GetDisableList() { return &DisableList; }
 	void CatchObject(Object* _Object);
-	Object* RecycleObject(string _Key);
+	Object* ThrowObject(string _Key);
 	void Update();
 private:
 	ObjectPool();

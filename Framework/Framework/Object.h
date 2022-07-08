@@ -3,13 +3,17 @@
 
 class Object
 {
+public:
+	Object();
+	Object(Transform _Info);
+	virtual ~Object();
 protected:
 	Transform TransInfo;
 	string strKey;
 	int Color;
 	char* Buffer[MAX_SIZE];
 public:
-	virtual void Initialize() PURE;
+	virtual Object* Initialize(string _Key) PURE;
 	virtual int Update() PURE;
 	virtual void Render() PURE;
 	virtual void Release() PURE;
@@ -25,8 +29,4 @@ public:
 	Vector3 GetScale() const { return TransInfo.Scale; }
 	void SetScale(float _x, float _y) { TransInfo.Scale = Vector3(_x, _y); }
 private:
-public:
-	Object();
-	Object(Transform _Info);
-	virtual ~Object();
 };

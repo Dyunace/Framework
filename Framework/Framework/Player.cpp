@@ -1,28 +1,29 @@
-#include "Player.h"
+ï»¿#include "Player.h"
 #include "InputManager.h"
 #include "CursorManager.h"
 #include "Bullet.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
-#include "ObjectPool.h"
 
 Player::Player() { }
 Player::Player(Transform _TransInfo) : Object(_TransInfo) { }
 Player::~Player() { }
 
 
-void Player::Initialize()
+Object* Player::Initialize(string _Key)
 {
-	strKey = "Player";
+	strKey = _Key;
 
-	Buffer[0] = (char*)"¿À";
-	Buffer[1] = (char*)"¤µ";
+	Buffer[0] = (char*)"ì˜¤";
+	Buffer[1] = (char*)"ã……";
 
 	TransInfo.Position = Vector3(20.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
 
 	Color = 15;
+
+	return this;
 }
 
 int Player::Update()
@@ -43,26 +44,7 @@ int Player::Update()
 
 	if (dwKey & KEY_SPACE)
 	{
-		auto EnableList = ObjectManager::GetInstance()->GetObjectList("Bullet");
-		auto DisableList = ObjectManager::GetInstance()->GetDisObjectList("Bullet");
-
-		if (DisableList->size() == 0)
-		{
-			ObjectManager::GetInstance()->AddObject(ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
-		}
-		else
-		{
-			//ObjectManager::GetInstance()->RecycleObject("Bullet");
-
-			auto pBullet = DisableList->front();
-			EnableList->push_back(pBullet);
-			DisableList->pop_front();
-			
-			pBullet->Initialize();
-			pBullet->SetPosition(TransInfo.Position);
-
-			CursorManager::GetInstance()->WriteBuffer(15.0f, 2.0f, (char*)"Recycle Bullets");
-		}
+		ObjectManager::GetInstance()->AddObject("Bullet");
 	}
 
 	return 0;
@@ -70,8 +52,11 @@ int Player::Update()
 
 void Player::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(
-		TransInfo.Position, (char*)"Player", Color);
+	for (int i = 0; i < 2; ++i)
+		CursorManager::GetInstance()->WriteBuffer(
+			TransInfo.Position.x,
+			TransInfo.Position.y + i,
+			Buffer[i], Color);
 }
 
 void Player::Release()

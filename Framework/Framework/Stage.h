@@ -6,8 +6,8 @@ class UserInterface;
 class Stage : public Scene
 {
 private:
+	Object* pPlayer;
 	UserInterface* pUI;
-	// 스크롤 박스 체크용
 	int Check;
 public:
 	virtual void Initialize()override;
@@ -16,8 +16,8 @@ public:
 	virtual void Release()override;
 public:
 	void Enable_UI();
+
 public:
 	Stage();
 	virtual ~Stage();
 };
-

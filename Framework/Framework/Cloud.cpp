@@ -13,12 +13,14 @@ Cloud::~Cloud()
 {
 }
 
-void Cloud::Initialize()
+Object* Cloud::Initialize(string _Key)
 {
-	strKey = "Cloud";
+	strKey = _Key;
 
 	Buffer[0] = (char*)"c";
 	Buffer[1] = (char*)"3";
+
+	return nullptr;
 }
 
 int Cloud::Update()

@@ -1,13 +1,14 @@
 #include "ObjectManager.h"
+#include "ObjectFactory.h"
 #include "ObjectPool.h"
-#include "Object.h"
+#include "Bullet.h"
+#include "Prototype.h"
 
 ObjectManager* ObjectManager::Instance = nullptr;
 
 ObjectManager::ObjectManager()
 {
 	EnableList = ObjectPool::GetEnableList();
-	DisableList = ObjectPool::GetDisableList();
 }
 
 ObjectManager::~ObjectManager()
@@ -15,18 +16,24 @@ ObjectManager::~ObjectManager()
 
 }
 
-void ObjectManager::AddObject(Object* _Object)
+
+void ObjectManager::AddObject(string _Key)
 {
-	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
-	
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+
+	if (pObject == nullptr)
+		pObject = Prototype::GetInstance()->PrototypeObject(_Key);
+
+	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+
 	if (iter == EnableList->end())
 	{
 		list<Object*> TempList;
-		TempList.push_back(_Object);
-		EnableList->insert(make_pair(_Object->GetKey(), TempList));
+		TempList.push_back(pObject);
+		EnableList->insert(make_pair(pObject->GetKey(), TempList));
 	}
 	else
-		iter->second.push_back(_Object);
+		iter->second.push_back(pObject);
 }
 
 list<Object*>* ObjectManager::GetObjectList(string _strKey)
@@ -34,16 +41,6 @@ list<Object*>* ObjectManager::GetObjectList(string _strKey)
 	map<string, list<Object*>>::iterator iter = EnableList->find(_strKey);
 
 	if (iter == EnableList->end())
-		return nullptr;
-
-	return &iter->second;
-}
-
-list<Object*>* ObjectManager::GetDisObjectList(string _strKey)
-{
-	map<string, list<Object*>>::iterator iter = DisableList->find(_strKey);
-
-	if (iter == DisableList->end())
 		return nullptr;
 
 	return &iter->second;
@@ -58,34 +55,6 @@ list<Object*>::iterator ObjectManager::ThrowObject(list<Object*>::iterator _Wher
 
 	ObjectPool::GetInstance()->CatchObject(_Object);
 	return iter->second.erase(_Where);
-}
-
-void ObjectManager::RecycleObject(string _Key)
-{
-	auto Disiter = DisableList->find(_Key);
-	auto Eniter = EnableList->find(_Key);
-
-	auto pBullet = Disiter->second.front();
-
-	if (Disiter == DisableList->end())
-		return;
-	else
-	{
-		if (Disiter->second.size() == 0)
-		{
-			Eniter->second.push_back(pBullet);
-			Disiter->second.pop_front();
-		}
-	}
-	// 이 함수에 포지션 매개변수 추가하기
-	//pBullet->Initialize();
-	//pBullet->SetPosition(TransInfo.Position);
-	//
-	//auto Disableiter = DisableList->find(_Key);
-	//auto Enableiter = EnableList->find(_Key);
-	//
-	//Enableiter->second.push_back(Disableiter->second.front());
-	//Disableiter->second.pop_front();
 }
 
 void ObjectManager::Update()

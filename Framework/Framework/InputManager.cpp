@@ -2,6 +2,10 @@
 
 InputManager* InputManager::Instance = nullptr;
 
+InputManager::InputManager() : Key(0) { }
+InputManager::~InputManager() { }
+
+
 void InputManager::InputKey()
 {
 	Key = 0;
@@ -32,14 +36,7 @@ void InputManager::InputKey()
 
 	if (GetAsyncKeyState(VK_TAB))
 		Key |= KEY_TAB;
-}
 
-InputManager::InputManager() : Key(0)
-{
-
-}
-
-InputManager::~InputManager()
-{
-
+	if (GetAsyncKeyState(VK_ESCAPE))
+		Key |= KEY_ESCAPE;
 }

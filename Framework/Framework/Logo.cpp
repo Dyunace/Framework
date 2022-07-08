@@ -2,41 +2,30 @@
 #include "SceneManager.h"
 #include "InputManager.h"
 #include "ObjectManager.h"
-#include "Player.h"
-#include "Enemy.h"
 #include "ObjectFactory.h"
+
+Logo::Logo() { }
+Logo::~Logo() { }
+
 
 void Logo::Initialize()
 {
-	ObjectManager::GetInstance()->AddObject(ObjectFactory<Player>::CreateObject());
-	str = "Logo";
-
-	SceneManager::GetInstance()->SetScene(STAGE);
-
-	//ObjectManager::GetInstance()->AddObject(ObjectFactory<Enemy>::CreateObject());
 }
 
 void Logo::Update()
 {
-	DWORD Key = InputManager::GetInstance()->GetKey();
+	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (Key & KEY_ENTER)
-		SceneManager::GetInstance()->SetScene(MENU);
+	if (dwKey & KEY_ENTER)
+		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
 }
 
 void Logo::Render()
 {
-	cout << str << endl;
+	cout << "Logo" << endl;
 }
 
 void Logo::Release()
 {
-}
 
-Logo::Logo()
-{
-}
-
-Logo::~Logo()
-{
 }
