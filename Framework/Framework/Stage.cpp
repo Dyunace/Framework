@@ -18,6 +18,9 @@ void Stage::Initialize()
 {
 	Check = 0;
 
+	ObjectManager::GetInstance()->AddObject("Player");
+	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
+
 	pUI = new ScrollBox;
 	pUI->Initialize();
 }
@@ -27,7 +30,6 @@ void Stage::Update()
 	//Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
-
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -45,9 +47,8 @@ void Stage::Update()
 		}
 	}
 
-	pPlayer->Update();
+	//pPlayer->Update();
 	ObjectManager::GetInstance()->Update();
-
 
 	if (pBulletList != nullptr)
 	{
@@ -61,8 +62,6 @@ void Stage::Update()
 		}
 	}
 
-
-
 	if (pPlayer != nullptr)
 	{
 		if (pEnemyList != nullptr)
@@ -71,19 +70,19 @@ void Stage::Update()
 				Enemyiter != pEnemyList->end(); ++Enemyiter)
 			{
 				if (CollisionManager::CircleCollision(pPlayer, *Enemyiter))
-					Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
-
-
+				{
+					//Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
+				}
 
 				if (pBulletList != nullptr)
 				{
 					for (list<Object*>::iterator Bulletiter = pBulletList->begin();
 						Bulletiter != pBulletList->end(); )
 					{
-						if (CollisionManager::RectCollision(*Bulletiter, *Enemyiter))
-							Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
-						else
-							++Bulletiter;
+						//if (CollisionManager::RectCollision(*Bulletiter, *Enemyiter))
+						//	Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
+						//else
+						//	++Bulletiter;
 					}
 				}
 			}
@@ -96,7 +95,7 @@ void Stage::Update()
 
 void Stage::Render()
 {
-	pPlayer->Render();
+	//pPlayer->Render();
 	ObjectManager::GetInstance()->Render();
 
 	if (Check)

@@ -45,6 +45,7 @@ int Player::Update()
 	if (dwKey & KEY_SPACE)
 	{
 		ObjectManager::GetInstance()->AddObject("Bullet");
+		ObjectManager::GetInstance()->GetObjectList("Bullet")->back()->SetPosition(TransInfo.Position);
 	}
 
 	return 0;

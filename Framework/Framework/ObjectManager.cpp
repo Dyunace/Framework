@@ -22,7 +22,7 @@ void ObjectManager::AddObject(string _Key)
 	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
 
 	if (pObject == nullptr)
-		pObject = Prototype::GetInstance()->PrototypeObject(_Key);
+		pObject = Prototype::GetInstance()->PrototypeObject(_Key)->Clone();
 
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
 

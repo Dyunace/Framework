@@ -38,6 +38,7 @@ Object* ObjectPool::ThrowObject(string _Key)
 	{
 		Object* pObject = Disableiter->second.front();
 		Disableiter->second.pop_front();
+		pObject->Initialize(_Key);
 		return pObject;
 	}
 
@@ -64,6 +65,7 @@ void ObjectPool::Update()
 			{
 			case BUFFER_OVER:
 			{
+				CursorManager::GetInstance()->WriteBuffer(100.0f, 2.0f, (char*)"Bullet is out");
 				map<string, list<Object*>>::iterator Disableiter = DisableList.find((*iter2)->GetKey());
 
 				if (Disableiter == DisableList.end())
