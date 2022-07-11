@@ -3,6 +3,7 @@
 #include "InputManager.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
+#include "CursorManager.h"
 
 Logo::Logo() { }
 Logo::~Logo() { }
@@ -22,7 +23,7 @@ void Logo::Update()
 
 void Logo::Render()
 {
-	cout << "Logo" << endl;
+	CursorManager::GetInstance()->WriteBuffer(0.0f, 0.0f, (char*)"Logo");
 }
 
 void Logo::Release()

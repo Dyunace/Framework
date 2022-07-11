@@ -85,6 +85,18 @@
     <Filter Include="소스 파일\98.Pattern\Prototype">
       <UniqueIdentifier>{1da03d6a-02f3-44aa-b883-393506a0941d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\98.Pattern\ObjectPool">
+      <UniqueIdentifier>{2d1df102-e8cd-4c05-a94b-c1eada883318}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\98.Pattern\Bridge">
+      <UniqueIdentifier>{68c81284-5165-4123-84b9-a16c7a5ba05e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Object\Bullet\BulletBridge">
+      <UniqueIdentifier>{e78ddcc7-b111-4a91-b3a2-1bb2a6cd6474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Object\Bullet\BulletBridge\NormalBullet">
+      <UniqueIdentifier>{07d08457-abd8-41f9-b2a6-5bb882c5115e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -141,11 +153,14 @@
     <ClCompile Include="CursorManager.cpp">
       <Filter>소스 파일\99.Manager\CursorManager</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectPool.cpp">
-      <Filter>소스 파일\98.Pattern</Filter>
-    </ClCompile>
     <ClCompile Include="Prototype.cpp">
       <Filter>소스 파일\98.Pattern\Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPool.cpp">
+      <Filter>소스 파일\98.Pattern\ObjectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalBullet.cpp">
+      <Filter>소스 파일\02.Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -224,11 +239,20 @@
     <ClInclude Include="MathManager.h">
       <Filter>소스 파일\99.Manager\MathManager</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectPool.h">
-      <Filter>소스 파일\98.Pattern</Filter>
-    </ClInclude>
     <ClInclude Include="Prototype.h">
       <Filter>소스 파일\98.Pattern\Prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>소스 파일\98.Pattern\ObjectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="Bridge.h">
+      <Filter>소스 파일\98.Pattern\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBridge.h">
+      <Filter>소스 파일\02.Object\Bullet\BulletBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalBullet.h">
+      <Filter>소스 파일\02.Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

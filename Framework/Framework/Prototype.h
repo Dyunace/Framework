@@ -14,13 +14,12 @@ public:
 		return Instance;
 	}
 private:
-	map<string, Object*> PrototypeList;
+	map<string, Object*> ProtoTypeList;
+public:
+	void Initialize();
+	Object* ProtoTypeObject(string _Key);
 private:
 	Prototype();
 public:
 	~Prototype();
-public:
-	void Initialize();
-	Object* PrototypeObject(string _Key);
 };
-

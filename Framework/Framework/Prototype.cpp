@@ -1,9 +1,8 @@
 #include "Prototype.h"
 
-#include "Object.h"
 #include "Player.h"
-#include "Enemy.h"
 #include "Bullet.h"
+#include "Enemy.h"
 
 Prototype* Prototype::Instance = nullptr;
 Prototype::Prototype(){}
@@ -14,23 +13,21 @@ void Prototype::Initialize()
 	Transform Info;
 
 	string Key = "Player";
-	PrototypeList[Key] = (new Player(Info))->Initialize(Key);
+	ProtoTypeList[Key] = (new Player(Info))->Initialize(Key);
 
 	Key = "Enemy";
-	PrototypeList[Key] = (new Enemy(Info))->Initialize(Key);
+	ProtoTypeList[Key] = (new Enemy(Info))->Initialize(Key);
 
 	Key = "Bullet";
-	PrototypeList[Key] = (new Bullet(Info))->Initialize(Key);
+	ProtoTypeList[Key] = (new Bullet(Info))->Initialize(Key);
 }
 
-Object* Prototype::PrototypeObject(string _Key)
+Object* Prototype::ProtoTypeObject(string _Key)
 {
-	map<string, Object*>::iterator iter = PrototypeList.find(_Key);
+	map<string, Object*>::iterator iter = ProtoTypeList.find(_Key);
 
-	if (iter == PrototypeList.end())
-	{
+	if (iter == ProtoTypeList.end())
 		return nullptr;
-	}
 
 	return iter->second;
 }

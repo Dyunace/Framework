@@ -1,6 +1,7 @@
 #include "Menu.h"
 #include "SceneManager.h"
 #include "InputManager.h"
+#include "CursorManager.h"
 
 void Menu::Initialize()
 {
@@ -17,7 +18,7 @@ void Menu::Update()
 
 void Menu::Render()
 {
-	cout << str << endl;
+	CursorManager::GetInstance()->WriteBuffer(0.0f, 0.0f, (char*)"Menu");
 }
 
 void Menu::Release()

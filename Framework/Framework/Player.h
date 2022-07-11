@@ -14,5 +14,6 @@ public:
 	virtual void Release() override;
 
 	virtual Object* Clone() override { return new Player(*this); };
+public:
+	Object* CreateBullet();
 };
-

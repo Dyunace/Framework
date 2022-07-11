@@ -4,6 +4,7 @@
 #include "Bullet.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
+#include "NormalBullet.h"
 
 Player::Player() { }
 Player::Player(Transform _TransInfo) : Object(_TransInfo) { }
@@ -21,7 +22,8 @@ Object* Player::Initialize(string _Key)
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
 
-	Color = 15;
+	//speed = 1.0f;
+	//Color = 15;
 
 	return this;
 }
@@ -44,8 +46,8 @@ int Player::Update()
 
 	if (dwKey & KEY_SPACE)
 	{
-		ObjectManager::GetInstance()->AddObject("Bullet");
-		ObjectManager::GetInstance()->GetObjectList("Bullet")->back()->SetPosition(TransInfo.Position);
+		Bridge* pBridge = new NormalBullet;
+		ObjectManager::GetInstance()->AddBullet("Bullet", pBridge, TransInfo.Position);
 	}
 
 	return 0;
@@ -57,7 +59,7 @@ void Player::Render()
 		CursorManager::GetInstance()->WriteBuffer(
 			TransInfo.Position.x,
 			TransInfo.Position.y + i,
-			Buffer[i], Color);
+			Buffer[i], 15);
 }
 
 void Player::Release()
