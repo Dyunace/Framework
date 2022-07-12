@@ -97,6 +97,9 @@
     <Filter Include="소스 파일\02.Object\Bullet\BulletBridge\NormalBullet">
       <UniqueIdentifier>{07d08457-abd8-41f9-b2a6-5bb882c5115e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02.Object\Bullet\BulletBridge\VeryNormalBullet">
+      <UniqueIdentifier>{a38f2d4c-6ffb-4eab-87f2-cbcb41157d64}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -161,6 +164,9 @@
     </ClCompile>
     <ClCompile Include="NormalBullet.cpp">
       <Filter>소스 파일\02.Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecialBullet.cpp">
+      <Filter>소스 파일\02.Object\Bullet\BulletBridge\VeryNormalBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="NormalBullet.h">
       <Filter>소스 파일\02.Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialBullet.h">
+      <Filter>소스 파일\02.Object\Bullet\BulletBridge\VeryNormalBullet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

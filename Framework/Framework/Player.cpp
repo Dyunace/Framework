@@ -5,6 +5,7 @@
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
 #include "NormalBullet.h"
+#include "SpecialBullet.h"
 
 Player::Player() { }
 Player::Player(Transform _TransInfo) : Object(_TransInfo) { }
@@ -46,7 +47,8 @@ int Player::Update()
 
 	if (dwKey & KEY_SPACE)
 	{
-		Bridge* pBridge = new NormalBullet;
+		//Bridge* pBridge = new NormalBullet;
+		Bridge* pBridge = new SpecialBullet;
 		ObjectManager::GetInstance()->AddBullet("Bullet", pBridge, TransInfo.Position);
 	}
 

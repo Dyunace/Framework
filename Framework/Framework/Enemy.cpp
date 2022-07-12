@@ -12,7 +12,8 @@ Object* Enemy::Initialize(string _Key)
 	Buffer[0] = (char*)"È£";
 	Buffer[1] = (char*)"¤µ";
 
-	TransInfo.Position = Vector3(0.0f, 0.0f);
+
+	TransInfo.Position = Vector3(10.0f, 10.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3((float)strlen(Buffer[0]), (float)MAX_SIZE);
 

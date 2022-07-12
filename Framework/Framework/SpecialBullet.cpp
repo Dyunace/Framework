@@ -1,44 +1,45 @@
-#include "NormalBullet.h"
+#include "SpecialBullet.h"
 #include "CursorManager.h"
 #include "MathManager.h"
 #include "Object.h"
 
 
-NormalBullet::NormalBullet()
+SpecialBullet::SpecialBullet()
 {
 
 }
 
-NormalBullet::~NormalBullet()
+SpecialBullet::~SpecialBullet()
 {
 
 }
 
 
-void NormalBullet::Initialize()
+void SpecialBullet::Initialize()
 {
 	Speed = 0.5f;
 	Color = 12;
 }
 
-int NormalBullet::Update(Transform& Info)
+int SpecialBullet::Update(Transform& Info)
 {
 	Info.Direction = MathManager::GetDirection(
 		Info.Position, Vector3(60.0f, 15.0f));
 
-	Info.Position += Info.Direction * Speed;
+	Info.Position.x += 1.0f;
+
 	return 0;
 }
 
-void NormalBullet::Render()
+void SpecialBullet::Render()
 {
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x,
 		pObject->GetPosition().y,
-		(char*)"NormalBullet", Color);
+		(char*)"SpecialBullet", Color);
 }
 
-void NormalBullet::Release()
+void SpecialBullet::Release()
 {
 
 }

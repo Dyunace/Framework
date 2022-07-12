@@ -161,6 +161,7 @@
     <ClCompile Include="ScrollBox.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="UserInterface.cpp" />
+    <ClCompile Include="SpecialBullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGround.h" />
@@ -193,6 +194,7 @@
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="UserInterface.h" />
+    <ClInclude Include="SpecialBullet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
